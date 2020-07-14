@@ -1,0 +1,80 @@
+.select {
+    width: 15%;
+    padding: 2px 3px;
+    // margin: 1px 0;
+     box-sizing:content-box;
+  }
+  .address_container {
+    width: 30%;
+    padding: 2px 3px;
+    // margin: 1px 0;
+     box-sizing:content-box;
+  }
+
+  
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+
+  .box {
+    width: 35%;
+    padding: 2px 3px;
+    // margin: 1px 0;
+     box-sizing:content-box;
+  }
+
+  
+  .boxof{
+    width: 45%;
+    padding: 2px 3px;
+    // margin: 1px 0;
+     box-sizing:content-box;
+  }
+
+  .section {
+    display: table;
+    margin: 8px;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+  }
+  
+  .example-button-row button {
+    display: table-cell;
+    margin-right: 8px;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    width: 480px;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+
+  .pop{
+    margin-left:1775px;
+  }
+  
+  mat-form-field {
+    margin-right: 12px;
+  }
+
+  .ng-autocomplete {
+    width:20%;
+    max-width: 600px;
+    display: table;
+    margin: 0 auto;
+  }

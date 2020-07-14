@@ -1,0 +1,16 @@
+@import '~@angular/material/theming';
+
+
+@include mat-core();
+
+
+$style-primary: mat-palette($mat-grey);
+$style-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$style-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$style-theme: mat-dark-theme($style-primary, $style-accent, $style-warn);
+
+@include angular-material-theme($style-theme);

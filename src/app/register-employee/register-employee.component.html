@@ -1,0 +1,189 @@
+<!-- <div id="container" [@listAnimation]="registerForm"> -->
+<div>
+  <app-home></app-home>
+
+  <form [formGroup]="registerForm" (ngSubmit)="getErrorResponse()">
+    <h5>Profile</h5>
+    <!-- <div formArrayName="registerForm"></div> -->
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>First Name</mat-label>
+      <input matInput placeholder="First Name" formControlName="firstName" required>
+      <!-- <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+
+        <div *ngIf="firstname?.errors?.required">
+          Name is required.
+        </div>
+        <div *ngIf="firstname?.errors?.minlength">
+          Name must be at least 4 characters long.
+        </div>
+
+      </div> -->
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>Middle Name</mat-label>
+      <input matInput placeholder="Middle Name" formControlName="middleName">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>Last Name</mat-label>
+      <input matInput placeholder="Last Name" formControlName="lastName" required>
+      <!-- <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+
+        <div *ngIf="lastname?.errors?.required">
+          Name is required.
+        </div>
+        <div *ngIf="lastname?.errors?.minlength">
+          Name must be at least 4 characters long.
+        </div>
+
+      </div> -->
+    </mat-form-field>
+
+    <div class="example-container" style="font-size: 12px">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName="email" required>
+        <mat-error *ngIf="registerForm.controls.email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline" style="font-size: 12px">
+        <mat-label>Phone number</mat-label>
+        <input (keypress)="keyPress($event)" matInput placeholder="9874563211" formControlName="phoneNumber"
+          [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors}">
+        <div *ngIf="submitted && f.phoneNumber.errors">
+          <!-- <div *ngIf="f.phoneNumber.errors.required">phoneNumber is not valid</div> -->
+          <!-- <div *ngIf="f.phoneNumber.errors.pattern || f.phoneNumber.errors.maxlength || f.phoneNumber.errors.minlength">
+            Phone number must be at least 10 numbers
+          </div> -->
+        </div>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field lass="select" style="font-size: 12px" appearance="outline">
+        <mat-label>Addhar number</mat-label>
+        <input (keypress)="keyPress($event)" matInput placeholder="444455558888" ng-pattern="aadhar1" ng-model="aadhar"
+          required formControlName='aadhaar'>
+        <mat-error ng-show="registerForm.aadhar.$error.pattern">Please Enter the Valid aadhar number</mat-error>
+      </mat-form-field>
+    </div>
+
+
+
+    <div class="example-container" style="font-size: 12px">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your pan card number</mat-label>
+        <input matInput placeholder="ABCDE7894X" formControlName="pan" required>
+        <mat-error *ngIf="registerForm.controls.pan.invalid">{{getResponse()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="example-container" style="font-size: 12px">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your Voter Id</mat-label>
+        <input matInput placeholder="XYZ4563211" formControlName="voterId" required>
+        <mat-error *ngIf="registerForm.controls.voterId.invalid">{{getError()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <mat-form-field appearance="outline" style="font-size: 12px">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled matInput [min]="birthYear" [max]="birthToday"
+          formControlName="dateOfBirth">
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+        <mat-error class="invalid-feedback" *ngIf="dateOfBirth.errors?.age">{{getDateOfBirth()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="font-size: 12px">
+        <mat-label>Date of joining</mat-label>
+        <input matInput [matDatepicker]="dp4" disabled [max]="getToday()" formControlName="dateOfJoining">
+        <mat-datepicker-toggle matSuffix [for]="dp4"></mat-datepicker-toggle>
+        <mat-datepicker #dp4 disabled="false"></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="font-size: 12px">
+        <mat-label>Last Date Of Working</mat-label>
+        <input matInput [matDatepicker]="dp5" disabled matInput [min]="getToday()" formControlName="lastWorkingDate">
+        <mat-datepicker-toggle matSuffix [for]="dp5"></mat-datepicker-toggle>
+        <mat-datepicker #dp5 disabled="false"></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+
+    <h5>Address</h5>
+
+    <div formArrayName="addresses" *ngFor="let alias of registerForm.get('addresses')['controls']; let i = index;">
+      <div [formGroupName]="i">
+
+
+        <div>
+          <mat-form-field class="ng-autocomplete" appearance="outline" class="address_container"
+            style="font-size: 12px">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="address" formControlName="addressLine">
+          </mat-form-field>
+
+          <mat-form-field class="ng-autocomplete" appearance="outline" class="select" style="font-size: 12px">
+            <mat-label>Street</mat-label>
+            <input matInput placeholder="Street" formControlName="street">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+            <mat-label>City</mat-label>
+            <input matInput placeholder="City" formControlName="city">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+            <mat-label>State</mat-label>
+            <input matInput placeholder="State" formControlName="state">
+          </mat-form-field>
+          <!-- >
+          <ng-autocomplete  [data]="statesList" [searchKeyword]="keyword" placeHolder="State" [itemTemplate]="itemTemplate">
+          </ng-autocomplete>      
+        <ng-template #itemTemplate let-item>
+          <a [innerHTML]="item.name"></a>
+        </ng-template> -->
+
+          <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+            <mat-label>Pincode</mat-label>
+            <input (keypress)="keyPress($event)" matInput placeholder="Pincode" formControlName="pincode">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+            <mat-label>Country</mat-label>
+            <input matInput placeholder="Country" formControlName="country" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="example-button-row">
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button mat-mini-fab color='primary' (click)="addNewAddress()">+</button>
+              <button mat-mini-fab color='primary' (click)="deleteAddress(i)">-</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="example-button-row">
+        <div class="example-flex-container">
+          <div class="example-button-container">
+            <button [disabled]="registerForm.invalid" mat-flat-button class='pop' (click)="onSubmit()">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
