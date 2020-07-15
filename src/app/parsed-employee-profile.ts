@@ -1,7 +1,6 @@
 export class ParsedEmployeeProfile {
 
     constructor(
-        // public employeeNumber: string, 
         public firstName: string,
         public middleName: string,
         public lastName: string,

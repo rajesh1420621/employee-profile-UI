@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SeService } from '../se.service';
-import { EmployeeProfile } from '../employee-profile';
-import { EmployeeAddress } from '../employee-address';
-import { PhoneNumbers } from '../phone-numbers';
 import { ParsedEmployeeProfile } from '../parsed-employee-profile';
 
 
