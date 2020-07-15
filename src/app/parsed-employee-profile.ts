@@ -1,7 +1,5 @@
-import { EmployeeAddress } from './employee-address';
-import { PhoneNumbers } from './phone-numbers';
+export class ParsedEmployeeProfile {
 
-export class EmployeeProfile {
     constructor(
         // public employeeNumber: string, 
         public firstName: string,
@@ -14,7 +12,7 @@ export class EmployeeProfile {
         public dateOfBirth: string,
         public dateOfJoining: string,
         public lastWorkingDate: string,
-        public addresses: EmployeeAddress[],
-        public phoneNumbers: PhoneNumbers[]
+        public addresses: string,
+        public phoneNumbers: string
     ) { }
 }

@@ -2,22 +2,11 @@
 <div>
   <app-home></app-home>
 
-  <form [formGroup]="registerForm" (ngSubmit)="getErrorResponse()">
+  <form [formGroup]="registerForm">
     <h5>Profile</h5>
-    <!-- <div formArrayName="registerForm"></div> -->
     <mat-form-field appearance="outline" class="select" style="font-size: 12px">
       <mat-label>First Name</mat-label>
       <input matInput placeholder="First Name" formControlName="firstName" required>
-      <!-- <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
-
-        <div *ngIf="firstname?.errors?.required">
-          Name is required.
-        </div>
-        <div *ngIf="firstname?.errors?.minlength">
-          Name must be at least 4 characters long.
-        </div>
-
-      </div> -->
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="select" style="font-size: 12px">
@@ -28,16 +17,6 @@
     <mat-form-field appearance="outline" class="select" style="font-size: 12px">
       <mat-label>Last Name</mat-label>
       <input matInput placeholder="Last Name" formControlName="lastName" required>
-      <!-- <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
-
-        <div *ngIf="lastname?.errors?.required">
-          Name is required.
-        </div>
-        <div *ngIf="lastname?.errors?.minlength">
-          Name must be at least 4 characters long.
-        </div>
-
-      </div> -->
     </mat-form-field>
 
     <div class="example-container" style="font-size: 12px">
@@ -51,14 +30,9 @@
     <div>
       <mat-form-field appearance="outline" style="font-size: 12px">
         <mat-label>Phone number</mat-label>
-        <input (keypress)="keyPress($event)" matInput placeholder="9874563211" formControlName="phoneNumber"
-          [ngClass]="{ 'is-invalid': submitted && f.phoneNumber.errors}">
-        <div *ngIf="submitted && f.phoneNumber.errors">
-          <!-- <div *ngIf="f.phoneNumber.errors.required">phoneNumber is not valid</div> -->
-          <!-- <div *ngIf="f.phoneNumber.errors.pattern || f.phoneNumber.errors.maxlength || f.phoneNumber.errors.minlength">
-            Phone number must be at least 10 numbers
-          </div> -->
-        </div>
+        <input (keypress)="keyPress($event)" matInput placeholder="9999999999" formControlName="phoneNumbers"
+          [ngClass]="{ 'is-invalid': submitted && f.phoneNumbers.errors}">
+        <div *ngIf="submitted && f.phoneNumbers.errors">{{getErrorResponse()}}</div>
       </mat-form-field>
     </div>
 
@@ -126,8 +100,8 @@
         <div>
           <mat-form-field class="ng-autocomplete" appearance="outline" class="address_container"
             style="font-size: 12px">
-            <mat-label>Address</mat-label>
-            <input matInput placeholder="address" formControlName="addressLine">
+            <mat-label>Address Line</mat-label>
+            <input matInput placeholder="Address" formControlName="addressLine">
           </mat-form-field>
 
           <mat-form-field class="ng-autocomplete" appearance="outline" class="select" style="font-size: 12px">
@@ -144,13 +118,6 @@
             <mat-label>State</mat-label>
             <input matInput placeholder="State" formControlName="state">
           </mat-form-field>
-          <!-- >
-          <ng-autocomplete  [data]="statesList" [searchKeyword]="keyword" placeHolder="State" [itemTemplate]="itemTemplate">
-          </ng-autocomplete>      
-        <ng-template #itemTemplate let-item>
-          <a [innerHTML]="item.name"></a>
-        </ng-template> -->
-
           <mat-form-field appearance="outline" class="select" style="font-size: 12px">
             <mat-label>Pincode</mat-label>
             <input (keypress)="keyPress($event)" matInput placeholder="Pincode" formControlName="pincode">

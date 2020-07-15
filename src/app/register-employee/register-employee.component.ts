@@ -65,7 +65,7 @@ export class RegisterEmployeeComponent implements OnInit {
         Validators.minLength(5),
         ]],
       email: ['', [Validators.required, Validators.email]],
-      phoneNumber: ['', [Validators.required,
+      phoneNumbers: ['', [Validators.required,
       Validators.pattern("^[0-9]*$"),
       Validators.minLength(10), Validators.maxLength(10)]],
       pan: ['', [
@@ -133,8 +133,8 @@ export class RegisterEmployeeComponent implements OnInit {
 
   getErrorResponse() {
     this.submitted = true;
-    if (this.registerForm.controls.phoneNumber.invalid) {
-      return this.registerForm.controls.phoneNumber.hasError('phoneNumber') ? 'Not a valid number' : '';
+    if (this.registerForm.controls.phoneNumbers.invalid) {
+      return this.registerForm.controls.phoneNumbers.hasError('phoneNumbers') ? 'Not a valid number' : '';
     };
   }
 
@@ -177,7 +177,7 @@ export class RegisterEmployeeComponent implements OnInit {
     this.phoneNumbers = [];
     this.addresses.value.forEach(a => {
       this.employeeAddresses.push(new EmployeeAddress(
-        '',
+        a.addressLine,
         a.street,
         a.city,
         a.state,
@@ -185,7 +185,7 @@ export class RegisterEmployeeComponent implements OnInit {
         a.country
       ));
     });
-    this.phoneNumbers.push(new PhoneNumbers(this.registerForm.controls.phoneNumber.value));
+    this.phoneNumbers.push(new PhoneNumbers(this.registerForm.controls.phoneNumbers.value));
     this.employee = new EmployeeProfile(this.registerForm.controls.firstName.value,
       this.registerForm.controls.middleName.value,
       this.registerForm.controls.lastName.value,
