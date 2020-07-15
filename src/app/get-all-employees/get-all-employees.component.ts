@@ -13,24 +13,7 @@ import { ParsedEmployeeProfile } from '../parsed-employee-profile';
   styleUrls: ['./get-all-employees.component.scss']
 })
 export class GetAllEmployeesComponent implements OnInit {
-  // firstName: string;
-  // middleName: string;
-  // lastName: string;
-  // email: string;
-  // aadhaar: string;
-  // pan: string;
-  // voterId: string;
-  // dateOfBirth: string;
-  // dateOfJoining: string;
-  // lastWorkingDate: string;
-  // addresses: EmployeeAddress[];
-  // phoneNumbers: PhoneNumbers[];
-  // addressLine: string;
-  // street: string;
-  // city: string;
-  // state: string;
-  // pinCode: string;
-  // country: string;
+ 
   displayedColumns: string[] = ['firstName', 'middleName', 'lastName', 'email', 'phoneNumbers', 'aadhaar', 'pan', 'voterId', 'dateOfBirth', 'dateOfJoining', 'lastWorkingDate', 'addresses'];
 
   employee: ParsedEmployeeProfile;
