@@ -20,7 +20,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 import { GetAllEmployeesComponent } from './get-all-employees/get-all-employees.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { AddressComponent } from './address/address.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,8 @@ import {MatTableModule} from '@angular/material/table';
     HomeComponent,
     RegisterEmployeeComponent,
     GetAllEmployeesComponent,
+    UpdateEmployeeComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ import {MatTableModule} from '@angular/material/table';
     MatTableModule
     
   ],
-  providers: [],
+  providers:[],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

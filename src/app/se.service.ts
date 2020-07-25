@@ -18,6 +18,14 @@ export class SeService {
       JSON.stringify(employee), { headers: new HttpHeaders().set('Content-Type', 'application/json') })
       .pipe(catchError(this.handleError));
   }
+  
+  updateEmployee(employee: EmployeeProfile): Observable<any> {
+    let url: string = 'http://localhost:8080/updateemployeeprofile';
+    return this.http.put<any>(url,
+      JSON.stringify(employee), { headers: new HttpHeaders().set('Content-Type', 'application/json') })
+      .pipe(catchError(this.handleError));
+  }
+
 
   getAllEmplooyeeDetails(): Observable<any> {
     let url: string = 'http://localhost:8080/getallemployees';
@@ -26,6 +34,13 @@ export class SeService {
       .pipe(catchError(this.handleError));
   }
 
+  getEmployeeDetails(): Observable<any> {
+    let url: string = 'http://localhost:8080/getemployee/1';
+    console.log('get the employee details')
+    return this.http.get<any>(url,
+      { headers: new HttpHeaders().set('Content-Type', 'application/json') })
+      .pipe(catchError(this.handleError));
+  }
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

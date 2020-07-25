@@ -63,8 +63,6 @@
         <mat-error *ngIf="registerForm.controls.voterId.invalid">{{getError()}}</mat-error>
       </mat-form-field>
     </div>
-
-
     <div>
       <mat-form-field appearance="outline" style="font-size: 12px">
         <mat-label>Date of birth</mat-label>
@@ -84,14 +82,18 @@
 
       <mat-form-field appearance="outline" style="font-size: 12px">
         <mat-label>Last Date Of Working</mat-label>
-        <input matInput [matDatepicker]="dp5" disabled matInput [min]="getToday()" formControlName="lastWorkingDate">
+        <input matInput [matDatepicker]="dp5" disabled matInput [min]="getToday()"  formControlName="lastWorkingDate">
         <mat-datepicker-toggle matSuffix [for]="dp5"></mat-datepicker-toggle>
         <mat-datepicker #dp5 disabled="false"></mat-datepicker>
       </mat-form-field>
     </div>
 
-
-    <h5>Address</h5>
+    <!-- <div>
+      {{today | date}}
+      <p>Or if you prefer, {{today | date:'fullDate'}}</p>
+      <p>The time is {{today | date:'h:mm a z'}}</p>
+    </div>
+    <h5>Address</h5> -->
 
     <div formArrayName="addresses" *ngFor="let alias of registerForm.get('addresses')['controls']; let i = index;">
       <div [formGroupName]="i">

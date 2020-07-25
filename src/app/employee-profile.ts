@@ -3,7 +3,7 @@ import { PhoneNumbers } from './phone-numbers';
 
 export class EmployeeProfile {
     constructor(
-        // public employeeNumber: string, 
+        public employeeNumber: string, 
         public firstName: string,
         public middleName: string,
         public lastName: string,

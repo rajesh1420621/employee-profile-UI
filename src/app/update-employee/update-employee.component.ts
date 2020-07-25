@@ -6,16 +6,11 @@ import { EmployeeAddress } from '../employee-address';
 import { PhoneNumbers } from '../phone-numbers';
 
 @Component({
-  selector: 'app-register-employee',
-  templateUrl: './register-employee.component.html',
-  styleUrls: ['./register-employee.component.scss'],
- 
-  // animations :[ 
-  //   stagger
-  // ]
+  selector: 'app-update-employee',
+  templateUrl: './update-employee.component.html',
+  styleUrls: ['./update-employee.component.scss']
 })
-export class RegisterEmployeeComponent implements OnInit {
-
+export class UpdateEmployeeComponent implements OnInit {
   submitted = false;
   registerForm: FormGroup;
   employee: EmployeeProfile;
@@ -24,6 +19,7 @@ export class RegisterEmployeeComponent implements OnInit {
   options: string[] = ['India'];
   birthYear: Date;
   birthToday: Date;
+  dateConvert: Date;
 
   constructor(private fb: FormBuilder, private service: SeService) {
     const currentYear = new Date().getFullYear();
@@ -155,9 +151,10 @@ export class RegisterEmployeeComponent implements OnInit {
 
   getToday() {
     return new Date().toISOString().split('T')[0]
+
   }
 
-  onSubmit() {
+  onUpdateEmployee() {
     this.employeeAddresses = [];
     this.phoneNumbers = [];
     this.addresses.value.forEach(a => {
@@ -185,7 +182,7 @@ export class RegisterEmployeeComponent implements OnInit {
       this.phoneNumbers
     );
 
-    this.service.RegisterEmployee(this.employee).subscribe(
+    this.service.updateEmployee(this.employee).subscribe(
       data => console.log(data),
       error => console.error(error)
     );
