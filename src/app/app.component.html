@@ -1,5 +1,6 @@
-<div class="shadow">
-  <mat-toolbar>Employee Management System</mat-toolbar>
+<div [@routeAnimations]="o && o.activatedRouteData 
+&& o.activatedRouteData['animation']">
+  <mat-toolbar>Employee Management System
+  </mat-toolbar>
+<router-outlet #o="outlet"></router-outlet>
 </div>
-
-<router-outlet></router-outlet>

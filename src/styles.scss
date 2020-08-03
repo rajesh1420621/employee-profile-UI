@@ -14,3 +14,8 @@ $style-warn:    mat-palette($mat-red);
 $style-theme: mat-dark-theme($style-primary, $style-accent, $style-warn);
 
 @include angular-material-theme($style-theme);
+
+main {
+    text-align: center;
+    position: relative;
+}

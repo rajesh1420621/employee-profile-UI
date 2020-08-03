@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { HomeComponent } from './home/home.component';
 import { RegisterEmployeeComponent } from './register-employee/register-employee.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -22,6 +22,11 @@ import { GetAllEmployeesComponent } from './get-all-employees/get-all-employees.
 import {MatTableModule} from '@angular/material/table';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { AddressComponent } from './address/address.component';
+import {MatCardModule} from '@angular/material/card';
+import { EmployeeAttendanceComponent } from './employee-attendance/employee-attendance.component';
+import { EmployeePayrollSalaryComponent } from './employee-payroll-salary/employee-payroll-salary.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +36,9 @@ import { AddressComponent } from './address/address.component';
     GetAllEmployeesComponent,
     UpdateEmployeeComponent,
     AddressComponent,
+    EmployeeAttendanceComponent,
+    EmployeePayrollSalaryComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,10 @@ import { AddressComponent } from './address/address.component';
     MatIconModule,
     MatAutocompleteModule,
     AutocompleteLibModule,
-    MatTableModule
+    MatTableModule,
+    MatCardModule,
+    MatSelectModule
+    
     
   ],
   providers:[],

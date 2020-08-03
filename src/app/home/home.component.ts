@@ -1,5 +1,6 @@
 import { Component, OnInit, } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,14 @@ import { Router } from '@angular/router';
   
 })
 export class HomeComponent implements OnInit {
-  
-  
-  constructor(private router:Router) { }
+ 
+  constructor(private router:Router,private fb: FormBuilder) { }
 
 
   ngOnInit(): void {
+
+  }
+  onSubmit() {
 
   }
 
@@ -23,5 +26,13 @@ export class HomeComponent implements OnInit {
   
   onGetAllEmployees(){
     this.router.navigate(['getallemployees']);
+  }
+
+  
+  onEmployeeAttendance(){
+    this.router.navigate(['employee-attendance']);
+  }
+  onEmployeeSalary(){
+    this.router.navigate(['employee-payroll']);
   }
 }

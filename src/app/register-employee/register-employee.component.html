@@ -88,13 +88,6 @@
       </mat-form-field>
     </div>
 
-    <!-- <div>
-      {{today | date}}
-      <p>Or if you prefer, {{today | date:'fullDate'}}</p>
-      <p>The time is {{today | date:'h:mm a z'}}</p>
-    </div>
-    <h5>Address</h5> -->
-
     <div formArrayName="addresses" *ngFor="let alias of registerForm.get('addresses')['controls']; let i = index;">
       <div [formGroupName]="i">
 

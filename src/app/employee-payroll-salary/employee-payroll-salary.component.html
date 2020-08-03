@@ -1,0 +1,39 @@
+<div>
+  <app-home></app-home>
+  <form [formGroup]="payroll">
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>Employee Id</mat-label>
+      <input matInput placeholder="Employee Id" formControlName="employeeId" required>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>Role</mat-label>
+      <mat-select required>
+        <mat-option value="option">Senior Manager</mat-option>
+        <mat-option value="option">Web Developer</mat-option>
+        <mat-option value="Agent">Agent</mat-option>
+        <mat-option value="option">Security Gaurd</mat-option>
+        <mat-option value="option">Cleaner</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>From</mat-label>
+      <input matInput [matDatepicker]="dp" [min]="month" [max]="today" formControlName="fromDate" required>
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="select" style="font-size: 12px">
+      <mat-label>To</mat-label>
+      <input matInput [matDatepicker]="dp1" formControlName="toDate" required>
+      <mat-datepicker-toggle matSuffix [for]="dp1"></mat-datepicker-toggle>
+      <mat-datepicker #dp1></mat-datepicker>
+    </mat-form-field>
+
+
+    <button mat-flat-button>search</button>
+
+  </form>
+</div>
